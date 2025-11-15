@@ -47,7 +47,7 @@ const About = () => {
       />
 
           <div className="text">
-            <h1 className="glow">Raemil Vince</h1>
+            <h1 className="glow">Raemil Vince Amarillo</h1>
             <br /><br />
             <p>
               Raemil Vincent Amarillo, 21, is a fourth-year Bachelor of Science in Information Technology
