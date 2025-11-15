@@ -1,0 +1,109 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  background: rgba(10, 20, 30, 0.55);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.25);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.08);
+  animation: navbarFade 0.8s ease forwards;
+}
+
+@keyframes navbarFade {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #00ffff;
+  text-shadow: 0 0 12px #00ffff;
+  cursor: pointer;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #00ffff;
+  text-shadow: 0 0 12px #00ffff;
+}
+
+.logo:hover {
+  transform: scale(1.08);
+  text-shadow: 0 0 20px #00ffff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.35s ease;
+  padding: 5px 0;
+  font-weight: 500;
+}
+
+/* Hover glow */
+.nav-links a:hover {
+  color: #00ffff;
+  transform: scale(1.15);
+  text-shadow: 0 0 10px #00ffff;
+}
+
+/* Animated underline for active link */
+.active {
+  color: #00ffff;
+  text-shadow: 0 0 8px #00ffff;
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: #00ffff;
+  box-shadow: 0 0 8px #00ffff;
+  animation: underlineSlide 0.4s ease;
+}
+
+@keyframes underlineSlide {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Mobile responsive behavior */
+@media (max-width: 750px) {
+  .navbar {
+    padding: 15px 25px;
+  }
+
+  .nav-links {
+    gap: 18px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+}

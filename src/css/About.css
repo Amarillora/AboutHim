@@ -1,0 +1,111 @@
+.about {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 50px;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  max-width: 1000px;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-content1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  max-width: 1000px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.profile-img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 3px solid cyan;
+  box-shadow: 0 0 20px cyan;
+  transition: transform 0.4s ease;
+}
+
+.profile-img1 {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 3px solid cyan;
+  box-shadow: 0 0 20px cyan;
+  transition: transform 0.4s ease;
+}
+
+.text {
+  max-width: 500px;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.glow {
+  font-size: 2rem;
+  color: #00ffff;
+  text-shadow: 0 0 15px #00ffff;
+  animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  from { text-shadow: 0 0 10px #00ffff; }
+  to { text-shadow: 0 0 25px #00ffff; }
+}
+
+/* Projects Section */
+.about-projects {
+  max-width: 900px;
+  width: 100%;
+  padding: 20px 0 0 0;
+  text-align: center;
+}
+
+/* Single card container for all projects */
+.projects-card {
+  background: rgba(0, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 15px;
+  padding: 30px 40px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+  user-select: none;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.projects-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 2.2rem;
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+.projects-card li {
+  margin-bottom: 15px;
+}
+
+/* Default: no color change on project links */
+.project-link {
+  color: inherit; /* inherit from parent (usually white) */
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* Highlight on hover */
+.project-link:hover {
+  color: #00ffff;
+  text-shadow: 0 0 8px #00ffff;
+  text-decoration: underline;
+}

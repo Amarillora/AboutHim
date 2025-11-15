@@ -1,0 +1,71 @@
+.education {
+  padding: 100px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.edu-title {
+  font-size: 2.8rem;
+  letter-spacing: 2px;
+  margin-bottom: 50px;
+  color: cyan;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+/* Card layout */
+.edu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.edu-card {
+  background: rgba(0, 255, 255, 0.06);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  padding: 35px 30px;
+  border-radius: 18px;
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edu-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+}
+
+/* Text styles */
+.edu-heading {
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #00ffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.edu-school {
+  opacity: 0.9;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* Bullet list */
+.grade-list {
+  list-style: disc;
+  text-align: left;
+  margin-left: 25px;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #dfffff;
+}
+
+.grade-list li {
+  margin-bottom: 6px;
+  transition: transform 0.2s ease;
+}
+
+.grade-list li:hover {
+  transform: translateX(5px);
+  color: cyan;
+}
