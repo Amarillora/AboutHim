@@ -7,7 +7,7 @@ import CrimpImage from "../assets/images/Crimp.jpg";
 const About = () => {
   const projects = [
     { name: "CAVITE:VR – Virtual Reality Landmarks Exploration", link: "https://cavite-vr.onrender.com" },
-    { name: "ElectZone – Online Voting System for School Elections", link: "https://yourprojectlink5.com" },
+    { name: "ElectZone – Online Voting System for School Elections", link: "https://elect-zone-five.vercel.app/" },
   ];
 
   return (
