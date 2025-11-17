@@ -32,17 +32,30 @@ const Contact = () => {
         </motion.div>
 
         {/* Phone Card */}
-        <motion.div
-          className="contact-card"
-          variants={cardVariants}
-          initial="initial"
-          animate="animate"
-          whileHover="hover"
-        >
-          <h3>PHONE</h3>
-          <p>+63 919-815-5894</p>
-        </motion.div>
-
+        {/* GitHub Card */}
+          <motion.div
+            className="contact-card"
+            variants={cardVariants}
+            initial="initial"
+            animate="animate"
+            whileHover="hover"
+          >
+            <h3>GITHUB</h3>
+            <motion.a
+              href="https://github.com/Amarillora"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "inherit", textDecoration: "underline", cursor: "pointer" }}
+              whileHover={{
+                scale: 1.1,
+                textShadow: "0 0 8px #00ffff",
+                color: "#00ffff",
+                transition: { type: "spring", stiffness: 300, damping: 15 },
+              }}
+            >
+              github.com/Amarillora
+            </motion.a>
+          </motion.div>
         {/* Location Card */}
         <motion.div
           className="contact-card"
