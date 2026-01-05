@@ -8,6 +8,8 @@ const About = () => {
   const projects = [
     { name: "CAVITE:VR – Virtual Reality Landmarks Exploration", link: "https://cavite-vr.onrender.com" },
     { name: "ElectZone – Online Voting System for School Elections", link: "https://elect-zone-five.vercel.app/" },
+    { name: "KarinDirya - Basic Restaurant Management System", link: "https://karin-dirya.vercel.app/" },
+    { name: "Check-Inn - Condominium Management Application", link: "https://github.com/delgadjp/Raven-Nest/releases/tag/v.0.0.2-beta" },
   ];
 
   return (
