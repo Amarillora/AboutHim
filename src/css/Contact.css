@@ -1,41 +1,157 @@
 .contact {
-  text-align: center;
-  padding: 100px 20px;
+  width: min(980px, 100%);
+  padding: 90px 20px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  min-height: calc(100vh - 110px);
 }
 
-/* Layout for 3 cards */
-.contact-cards {
-  margin-top: 100px;
+.contact-panel {
+  width: 100%;
+  background: rgba(12, 12, 12, 0.76);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(10px);
+  padding: 30px 28px 34px;
+}
+
+.contact-title {
+  margin-bottom: 28px;
+  text-align: left;
+  color: #f4f4f4;
+  text-shadow: none;
+  font-size: clamp(2.3rem, 4vw, 2.9rem);
+  font-weight: 800;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-row {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 12px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.contact-row:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.08);
+}
+
+.contact-row-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #f4f4f4;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.contact-row-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: left;
+}
+
+.contact-row-text strong {
+  color: #76808c;
+  font-size: 1rem;
+}
+
+.contact-row-text span {
+  color: #f1f1f1;
+  font-size: 1.15rem;
+  font-weight: 700;
+  word-break: break-word;
+}
+
+.contact-footer {
+  position: relative;
+  width: 100vw;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 14px 16px 8px;
+  background: rgba(148, 156, 168, 0.18);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  z-index: 1;
+}
+
+.contact-footer-icons {
   display: flex;
   justify-content: center;
-  gap: 60px;
+  align-items: center;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
-/* Individual card styles */
-.contact-card {
-  width: 360px;
-  background: rgba(0, 255, 255, 0.05);
-  border: 1px solid rgba(0, 255, 255, 0.2);
-  border-radius: 15px;
-  padding: 30px 25px;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
+.footer-icon-link {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  transition: color 0.2s ease;
 }
 
-.contact-card h3 {
-  margin-bottom: 15px;
-  font-size: 1.3rem;
-  color: cyan;
+.footer-icon-link:hover {
+  color: #00ffff;
 }
 
-.contact-card p {
-  font-size: 1rem;
-  opacity: 0.8;
+.contact-footer-note {
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.52);
+  letter-spacing: 0.3px;
 }
 
-/* Hover effect backup (Framer already animates but CSS adds smoothness) */
-.contact-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+@media (max-width: 640px) {
+  .contact-panel {
+    padding: 22px 16px 26px;
+  }
+
+  .contact-row {
+    grid-template-columns: 40px 1fr;
+    gap: 12px;
+  }
+
+  .contact-row-text span {
+    font-size: 1rem;
+  }
+
+  .contact-footer {
+    padding: 12px 12px 8px;
+  }
 }

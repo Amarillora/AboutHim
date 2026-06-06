@@ -1,0 +1,168 @@
+.experiences {
+  width: min(1100px, 100%);
+  text-align: center;
+  padding: 100px 20px 80px;
+}
+
+.experience-header {
+  margin-bottom: 42px;
+}
+
+.experience-subtitle {
+  margin-top: 10px;
+  color: #dfffff;
+  font-size: 1.05rem;
+  letter-spacing: 0.2px;
+}
+
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  position: relative;
+}
+
+.experience-timeline::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(0, 255, 255, 0.18), rgba(0, 255, 255, 0.05));
+}
+
+.experience-row {
+  position: relative;
+  padding-left: 48px;
+}
+
+.experience-dot {
+  position: absolute;
+  left: 7px;
+  top: 26px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #00ffff;
+  box-shadow: 0 0 0 5px rgba(0, 255, 255, 0.12), 0 0 18px rgba(0, 255, 255, 0.85);
+}
+
+.experience-card {
+  width: 100%;
+  background: rgba(10, 15, 18, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 28px 28px 24px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02), 0 14px 40px rgba(0, 0, 0, 0.32);
+  text-align: left;
+}
+
+.experience-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.experience-card h3 {
+  color: #00ffff;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  text-shadow: 0 0 14px rgba(0, 255, 255, 0.35);
+}
+
+.experience-card h4 {
+  color: #00d8ff;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.experience-period {
+  color: rgba(255, 255, 255, 0.62);
+  font-weight: 600;
+  white-space: nowrap;
+  margin-top: 6px;
+}
+
+.experience-points {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  color: #e8ecef;
+  line-height: 1.55;
+}
+
+.experience-points li {
+  position: relative;
+  padding-left: 16px;
+}
+
+.experience-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00ffff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+.experience-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.experience-tags span {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #d3d8dc;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 720px) {
+  .experience-row {
+    padding-left: 40px;
+  }
+
+  .experience-card {
+    padding: 24px 20px 20px;
+  }
+
+  .experience-card-head {
+    flex-direction: column;
+  }
+
+  .experience-period {
+    margin-top: 0;
+  }
+
+  .experience-timeline::before {
+    left: 12px;
+  }
+
+  .experience-dot {
+    left: 5px;
+  }
+
+  .experience-tags span {
+    font-size: 0.78rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-card,
+  .experience-tags span,
+  .experience-points li,
+  .experience-dot {
+    transition: none;
+  }
+}

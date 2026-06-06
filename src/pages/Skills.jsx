@@ -1,59 +1,88 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import "../css/Skills.css";
 
 const Skills = () => {
-  const skills = [
+  const skillGroups = [
     {
-title: "COMPUTER NETWORKING",
-  desc: "Experienced in configuring network systems, managing routing, and ensuring stable connectivity. Knowledgeable in network diagnostics, security practices, and foundational protocols."
-},
-{
-  title: "HARDWARE & SOFTWARE TROUBLESHOOTING",
-  desc: "Skilled in diagnosing and resolving hardware failures across desktops and laptops. Adept at addressing software-related issues, system errors, performance problems, and OS configurations."
-},
-{
-  title: "REACT",
-  desc: "Specialized in building scalable and interactive user interfaces using modern React practices. Proficient in component architecture, state management, and responsive, animation-driven UI design."
-},
-{
-  title: "FLUTTER",
-  desc: "Experienced in developing cross-platform mobile applications with clean and efficient UI structures. Capable of integrating backend services and ensuring smooth, consistent app performance."
-},
-{
-  title: "FIREBASE",
-  desc: "Proficient in implementing authentication, real-time databases, and cloud storage through Firebase services. Focused on creating secure, scalable, and cloud-optimized application workflows."
-},
-{
-  title: "SUPABASE",
-  desc: "Knowledgeable in building backend APIs and managing PostgreSQL databases through Supabase. Experienced in structured data modeling, authentication flows, and efficient API integration."
-}
-
+      label: "FRONTEND",
+      items: [
+        { name: "JavaScript", short: "JS", accent: "#f7df1e" },
+        { name: "TypeScript", short: "TS", accent: "#3178c6" },
+        { name: "React", short: "R", accent: "#61dafb" },
+        { name: "Next.js", short: "N", accent: "#ffffff" },
+        { name: "Tailwind CSS", short: "TW", accent: "#38bdf8" },
+        { name: "Bootstrap", short: "B", accent: "#7c3aed" },
+      ],
+    },
+    {
+      label: "BACKEND",
+      items: [
+        { name: "Node.js", short: "N", accent: "#68a063" },
+        { name: "Laravel", short: "L", accent: "#e0234e" },
+        { name: "PHP", short: "PHP", accent: "#f4f4f4" },
+        { name: "Java", short: "J", accent: "#2bc033" },
+      ],
+    },
+    {
+      label: "DATABASE",
+      items: [
+        { name: "MySQL", short: "MY", accent: "#00758f" },
+        { name: "PostgreSQL", short: "PG", accent: "#336791" },
+        { name: "Supabase", short: "SB", accent: "#10aa50" },
+        { name: "Firebase", short: "FB", accent: "#ffffff" },
+      ],
+    },
+    {
+      label: "TOOLS",
+      items: [
+        { name: "Git", short: "GT", accent: "#f05133" },
+        { name: "VsCode", short: "VS", accent: "#2496ed" },
+        { name: "Figma", short: "FG", accent: "#ff9900" },
+      ],
+    },
   ];
 
   return (
-    <motion.div
+    <Motion.div
       className="skills"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
       <h2>SKILLS</h2>
-      <br />
-      <div className="skills-grid">
-        {skills.map((skill, i) => (
-          <motion.div
-            key={i}
-            className="skill-card"
-            whileHover={{ rotate: 5, scale: 1.1 }}
-            transition={{ type: "spring", stiffness: 200, damping: 10 }}
+
+      <div className="skills-stack">
+        {skillGroups.map((group, groupIndex) => (
+          <Motion.div
+            key={group.label}
+            className="skill-group"
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: groupIndex * 0.08 }}
+            viewport={{ once: false, amount: 0.2 }}
           >
-            <span className="skill-title">{skill.title}</span>
-            <p className="skill-description">{skill.desc}</p>
-          </motion.div>
+            <div className="skill-group-label">{group.label}</div>
+
+            <div className="skill-icons-grid">
+              {group.items.map((item) => (
+                <Motion.div
+                  key={item.name}
+                  className="skill-item"
+                  whileHover={{ y: -4, scale: 1.04 }}
+                  transition={{ type: "spring", stiffness: 220, damping: 18 }}
+                >
+                  <span className="skill-icon" style={{ background: item.accent }}>
+                    {item.short}
+                  </span>
+                  <span className="skill-name">{item.name}</span>
+                </Motion.div>
+              ))}
+            </div>
+          </Motion.div>
         ))}
       </div>
-    </motion.div>
+    </Motion.div>
   );
 };
 

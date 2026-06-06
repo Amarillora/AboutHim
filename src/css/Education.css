@@ -5,7 +5,7 @@
 }
 
 .edu-title {
-  font-size: 2.8rem;
+  font-size: clamp(2.3rem, 4vw, 2.9rem);
   letter-spacing: 2px;
   margin-bottom: 50px;
   color: cyan;
@@ -22,17 +22,18 @@
 }
 
 .edu-card {
-  background: rgba(0, 255, 255, 0.06);
-  border: 1px solid rgba(0, 255, 255, 0.25);
+  background: rgba(10, 15, 18, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 35px 30px;
   border-radius: 18px;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02), 0 14px 40px rgba(0, 0, 0, 0.32);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .edu-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+  transform: scale(1.02);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 18px 44px rgba(0, 0, 0, 0.38);
 }
 
 /* Text styles */
@@ -41,12 +42,14 @@
   margin-bottom: 10px;
   font-weight: 600;
   color: #00ffff;
-  text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  text-shadow: 0 0 14px rgba(0, 255, 255, 0.35);
 }
 
 .edu-school {
-  opacity: 0.9;
+  color: #00d8ff;
+  opacity: 1;
   font-size: 1rem;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
@@ -57,15 +60,10 @@
   margin-left: 25px;
   line-height: 1.6;
   font-size: 0.95rem;
-  color: #dfffff;
+  color: #e8ecef;
 }
 
 .grade-list li {
   margin-bottom: 6px;
-  transition: transform 0.2s ease;
-}
-
-.grade-list li:hover {
-  transform: translateX(5px);
-  color: cyan;
+  transition: none;
 }

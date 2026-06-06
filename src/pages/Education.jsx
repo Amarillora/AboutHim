@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import "../css/Education.css";
 
 const Education = () => {
@@ -10,14 +10,14 @@ const Education = () => {
       school: "National University – Dasmariñas | 2022 – 2026",
       grades: [
         "1st Year — Dean’s List. GWA: 3.25",
-        "2nd Year — Dean’s List. GWA: 3.50. (with High Honors)",
+        "2nd Year — Dean’s List. GWA: 3.25",
         "3rd Year — Dean’s List. GWA: 3.25",
-        "4th Year — Ongoing",
+        "4th Year — Dean’s List. GWA: 3.25",
       ],
     },
     {
       title: "Senior High School (STEM Strand)",
-      school: "Philippine Christian School | 2020 – 2022",
+      school: "Philippine Christian University | 2020 – 2022",
       grades: [
         "Grade 11. Grade: 80% Average",
         "Grade 12. Grade: 85% Average",
@@ -26,7 +26,7 @@ const Education = () => {
   ];
 
   return (
-    <motion.div
+    <Motion.div
       className="education"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -37,7 +37,7 @@ const Education = () => {
 
       <div className="edu-list">
         {items.map((item, i) => (
-          <motion.div
+          <Motion.div
             key={i}
             className="edu-card"
             initial={{ x: i % 2 === 0 ? -80 : 80, opacity: 0 }}
@@ -52,10 +52,10 @@ const Education = () => {
                 <li key={index}>{g}</li>
               ))}
             </ul>
-          </motion.div>
+          </Motion.div>
         ))}
       </div>
-    </motion.div>
+    </Motion.div>
   );
 };
 

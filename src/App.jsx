@@ -1,28 +1,44 @@
 import React from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
 import Navbar from "./pages/Navbar";
 import StarBackground from "./pages/StarBackground";
 import About from "./pages/About";
-import Education from "./pages/Education";
+import Experiences from "./pages/Experiences";
 import Skills from "./pages/Skills";
+import Education from "./pages/Education";
+import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import "./App.css";
 
 const App = () => {
-  const location = useLocation();
-
   return (
     <>
       <StarBackground />
       <Navbar />
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<About />} />
-          <Route path="/education" element={<Education />} />
-          <Route path="/skills" element={<Skills />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </AnimatePresence>
+      <main className="portfolio-page">
+        <section id="about-me" className="portfolio-section">
+          <About />
+        </section>
+
+        <section id="experiences" className="portfolio-section">
+          <Experiences />
+        </section>
+
+        <section id="tools" className="portfolio-section">
+          <Skills />
+        </section>
+
+        <section id="education" className="portfolio-section">
+          <Education />
+        </section>
+
+        <section id="projects" className="portfolio-section">
+          <Projects />
+        </section>
+
+        <section id="contact" className="portfolio-section">
+          <Contact />
+        </section>
+      </main>
     </>
   );
 };

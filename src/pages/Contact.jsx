@@ -1,100 +1,109 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
+import { Github, Linkedin, Mail } from "lucide-react";
 import "../css/Contact.css";
 
 const Contact = () => {
-  const cardVariants = {
-    initial: { opacity: 0, y: 30 },
-    animate: { opacity: 1, y: 0 },
-    hover: { scale: 1.05, boxShadow: "0 0 25px rgba(0, 255, 255, 0.4)" },
+  const contactLinks = [
+    {
+      label: "Email",
+      value: "raemilvinceamarillo@gmail.com",
+      href: "mailto:raemilvinceamarillo@gmail.com",
+      icon: Mail,
+    },
+    {
+      label: "LinkedIn",
+      value: "www.linkedin.com/in/raemil-vince-amarillo-33117b397",
+      href: "https://www.linkedin.com/in/raemil-vince-amarillo-33117b397",
+      icon: Linkedin,
+    },
+    {
+      label: "GitHub",
+      value: "github.com/Amarillora",
+      href: "https://github.com/Amarillora",
+      icon: Github,
+    },
+  ];
+
+  const footerLinks = [
+    {
+      label: "GitHub",
+      href: "https://github.com/Amarillora",
+      icon: Github,
+    },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/raemil-vince-amarillo-33117b397",
+      icon: Linkedin,
+    },
+    {
+      label: "Email",
+      href: "mailto:raemilvinceamarillo@gmail.com",
+      icon: Mail,
+    },
+  ];
+
+  const ContactRow = ({ item }) => {
+    const RowIcon = item.icon;
+
+    return (
+      <a className="contact-row" href={item.href} target={item.href.startsWith("mailto:") ? undefined : "_blank"} rel="noopener noreferrer">
+        <span className="contact-row-icon">
+          <RowIcon size={20} strokeWidth={2.2} />
+        </span>
+        <span className="contact-row-text">
+          <strong>{item.label}</strong>
+          <span>{item.value}</span>
+        </span>
+      </a>
+    );
   };
 
   return (
-    <motion.div
+    <Motion.div
       className="contact"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <h2>CONTACT INFORMATION</h2>
+      <div className="contact-panel">
+        <h2 className="contact-title">Get in Touch</h2>
 
-      <div className="contact-cards">
-        {/* Email Card */}
-        <motion.div
-          className="contact-card"
-          variants={cardVariants}
-          initial="initial"
-          animate="animate"
-          whileHover="hover"
-        >
-          <h3>EMAIL</h3>
-          <p>raemilvinceamarillo@gmail.com</p>
-        </motion.div>
-
-        {/* Phone Card */}
-        {/* GitHub Card */}
-          <motion.div
-            className="contact-card"
-            variants={cardVariants}
-            initial="initial"
-            animate="animate"
-            whileHover="hover"
-          >
-            <h3>GITHUB</h3>
-            <motion.a
-              href="https://github.com/Amarillora"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "inherit", textDecoration: "underline", cursor: "pointer" }}
-              whileHover={{
-                scale: 1.1,
-                textShadow: "0 0 8px #00ffff",
-                color: "#00ffff",
-                transition: { type: "spring", stiffness: 300, damping: 15 },
-              }}
+        <div className="contact-list">
+          {contactLinks.map((item, index) => (
+            <Motion.div
+              key={item.label}
+              initial={{ opacity: 0, x: -18 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.55, ease: "easeOut", delay: index * 0.08 }}
+              viewport={{ once: false, amount: 0.2 }}
             >
-              github.com/Amarillora
-            </motion.a>
-          </motion.div>
-        {/* Location Card */}
-        <motion.div
-          className="contact-card"
-          variants={cardVariants}
-          initial="initial"
-          animate="animate"
-          whileHover="hover"
-        >
-          <h3>ADDRESS</h3>
-          <p>GMA Cavite, Philippines</p>
-        </motion.div>
-
-        {/* LinkedIn Card */}
-       <motion.div
-            className="contact-card"
-            variants={cardVariants}
-            initial="initial"
-            animate="animate"
-            whileHover="hover"
-          >
-            <h3>LINKEDIN</h3>
-            <motion.a
-              href="https://www.linkedin.com/in/raemil-vince-amarillo-33117b397"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "inherit", textDecoration: "underline", cursor: "pointer" }}
-              whileHover={{
-                scale: 1.1,
-                textShadow: "0 0 8px #00ffff",
-                color: "#00ffff",
-                transition: { type: "spring", stiffness: 300, damping: 15 },
-              }}
-            >
-              www.linkedin.com/in/raemil-vince-amarillo-33117b397
-            </motion.a>
-          </motion.div>
-
+              <ContactRow item={item} />
+            </Motion.div>
+          ))}
+        </div>
       </div>
-    </motion.div>
+
+      <footer className="contact-footer">
+        <div className="contact-footer-icons">
+          {footerLinks.map((item) => (
+            <Motion.a
+              key={item.label}
+              className="footer-icon-link"
+              href={item.href}
+              target={item.href.startsWith("mailto:") ? undefined : "_blank"}
+              rel="noopener noreferrer"
+              aria-label={item.label}
+              whileHover={{ y: -2, scale: 1.08 }}
+              transition={{ type: "spring", stiffness: 220, damping: 16 }}
+            >
+              <item.icon size={16} strokeWidth={2.2} />
+            </Motion.a>
+          ))}
+        </div>
+        <small className="contact-footer-note">© 2026 Raemil Vince Amarillo</small>
+      </footer>
+    </Motion.div>
   );
 };
 

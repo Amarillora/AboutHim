@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import "../css/Navbar.css";
 
 const Navbar = () => {
@@ -8,14 +7,26 @@ const Navbar = () => {
   const toggleMenu = () => setOpen((o) => !o);
   const closeMenu = () => setOpen(false);
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    closeMenu();
+  };
+
   return (
     <nav className="navbar">
-      <h2 className="logo">✨ MY PORTFOLIO</h2>
+      <div className="navbar-brand">✨My Portfolio✨</div>
 
       <button
         className={`hamburger ${open ? "open" : ""}`}
-        aria-label="Toggle navigation"
+        type="button"
+        aria-label="Toggle portfolio navigation"
         aria-expanded={open}
+        aria-controls="portfolio-menu"
         onClick={toggleMenu}
       >
         <span />
@@ -23,30 +34,28 @@ const Navbar = () => {
         <span />
       </button>
 
-      <ul className={`nav-links ${open ? "open" : ""}`}>
+      <ul id="portfolio-menu" className={`nav-links ${open ? "open" : ""}`}>
         <li>
-          <NavLink to="/" end className={({ isActive }) => (isActive ? "active" : "")} onClick={closeMenu}>
-            ABOUT
-          </NavLink>
+          <button type="button" onClick={() => scrollToSection("about-me")}>About Me</button>
         </li>
         <li>
-          <NavLink to="/education" className={({ isActive }) => (isActive ? "active" : "")} onClick={closeMenu}>
-            EDUCATION
-          </NavLink>
+          <button type="button" onClick={() => scrollToSection("experiences")}>Experiences</button>
         </li>
         <li>
-          <NavLink to="/skills" className={({ isActive }) => (isActive ? "active" : "")} onClick={closeMenu}>
-            SKILLS
-          </NavLink>
+          <button type="button" onClick={() => scrollToSection("tools")}>Skills</button>
         </li>
         <li>
-          <NavLink to="/contact" className={({ isActive }) => (isActive ? "active" : "")} onClick={closeMenu}>
-            CONTACT
-          </NavLink>
+          <button type="button" onClick={() => scrollToSection("education")}>Education</button>
+        </li>
+        <li>
+          <button type="button" onClick={() => scrollToSection("projects")}>Projects</button>
+        </li>
+        <li>
+          <button type="button" onClick={() => scrollToSection("contact")}>Contact</button>
         </li>
       </ul>
     </nav>
-  );
+  ); 
 };
 
 export default Navbar;
