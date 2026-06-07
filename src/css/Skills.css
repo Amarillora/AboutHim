@@ -64,11 +64,18 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #111;
+  color: #08121d;
   font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0.4px;
   box-shadow: 0 0 14px rgba(0, 0, 0, 0.2);
+}
+
+.skill-icon svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 
 .skill-name {

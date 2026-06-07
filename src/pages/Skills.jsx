@@ -49,6 +49,7 @@ const Skills = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
     >
       <h2>SKILLS</h2>
 
@@ -57,10 +58,10 @@ const Skills = () => {
           <Motion.div
             key={group.label}
             className="skill-group"
-            initial={{ opacity: 0, y: 18 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: groupIndex * 0.08 }}
-            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.45, ease: "easeOut", delay: groupIndex * 0.04 }}
+            viewport={{ once: true, amount: 0.18 }}
           >
             <div className="skill-group-label">{group.label}</div>
 
@@ -73,7 +74,7 @@ const Skills = () => {
                   transition={{ type: "spring", stiffness: 220, damping: 18 }}
                 >
                   <span className="skill-icon" style={{ background: item.accent }}>
-                    {item.short}
+                    <Icon name={item.name} />
                   </span>
                   <span className="skill-name">{item.name}</span>
                 </Motion.div>
@@ -87,3 +88,54 @@ const Skills = () => {
 };
 
 export default Skills;
+
+// Small inline icon component to avoid adding new deps and keep SVGs lightweight.
+function Icon({ name }) {
+  const key = String(name).toLowerCase();
+
+  if (key.includes("data") || key.includes("mysql") || key.includes("post") || key.includes("mongo") || key.includes("supabase") || key.includes("firebase") || key.includes("prisma")) {
+    // database cylinder
+    return (
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="12" cy="6" rx="8" ry="3" stroke="#08121d" strokeWidth="1.6" fill="#08121d" />
+        <path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6" stroke="#08121d" strokeWidth="1.6" fill="#08121d" />
+      </svg>
+    );
+  }
+
+  if (key.includes("git")) {
+    return (
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 6.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zM9 17.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zM20 14.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" stroke="#08121d" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M15 5v6.5L9 17" stroke="#08121d" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
+  if (key.includes("figma") || key.includes("design") || key.includes("ui")) {
+    // simple pen tool
+    return (
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 21l3-1 11-11 1-3-3 1L4 20z" stroke="#08121d" strokeWidth="1.6" fill="#08121d" />
+      </svg>
+    );
+  }
+
+  if (key.includes("node") || key.includes("express") || key.includes("laravel") || key.includes("php") || key.includes("java")) {
+    // server stack
+    return (
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="4" width="18" height="5" rx="1" stroke="#08121d" strokeWidth="1.6" fill="#08121d" />
+        <rect x="3" y="12" width="18" height="5" rx="1" stroke="#08121d" strokeWidth="1.6" fill="#08121d" />
+      </svg>
+    );
+  }
+
+  // default code / bracket icon
+  return (
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8.5 7L4 12l4.5 5" stroke="#08121d" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M15.5 7L20 12l-4.5 5" stroke="#08121d" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
