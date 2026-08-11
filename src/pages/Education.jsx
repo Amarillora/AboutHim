@@ -8,7 +8,7 @@ const Education = () => {
       title:
         "Bachelor of Science in Information Technology (Mobile & Web Applications)",
       school: "National University – Dasmariñas | 2022 – 2026",
-      grades: ["Cummulative General Weighted Average: 3.18"],
+      grades: ["Cummulative General Weighted Average:  3.18  (4 is the highest)"],
     },
     {
       title: "Senior High School (STEM Strand)",
